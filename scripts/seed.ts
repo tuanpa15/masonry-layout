@@ -1,10 +1,10 @@
-import { NewUser, insertUser } from "@lib/handler/user";
+import { NewUser, insertUser } from "@lib/db";
 
 async function main() {
   const newUser: NewUser = {
-    email: "foo1@example.com",
-    image: "some image url1",
-    name: "foo1",
+    email: "foo@example.com",
+    image: "some image url",
+    name: "foo",
   };
   const res = await insertUser(newUser);
   console.log("insert user success", res);
