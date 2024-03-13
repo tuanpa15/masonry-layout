@@ -10,3 +10,12 @@ export type NewFeed = typeof feeds.$inferInsert;
 export const insertFeed = async (feed: NewFeed) => {
   return db.insert(feeds).values(feed).returning();
 };
+
+export const getFeeds = async (params: { limit: number; offset: number }) => {
+  const result = await db
+    .select()
+    .from(feeds)
+    .limit(params.limit)
+    .offset(params.offset);
+  return result;
+};
